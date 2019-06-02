@@ -1,0 +1,142 @@
+.Header {
+  color: gold;
+  text-align: center;
+  border-bottom: brown solid 3px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.HomeContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8rem;
+  width: fit-content;
+}
+.HeaderBooks {
+  color: gold;
+  text-align: left;
+  margin: 0.5rem;
+}
+
+.ItemContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.Item {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid brown;
+}
+
+.TitleAndReview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid brown;
+}
+
+.ImageAndDescription {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px solid brown;
+}
+
+img {
+  width: 200px;
+  height: 150px;
+}
+.ItemDescription {
+  width: 300px;
+  border-left: 3px solid brown;
+}
+.ItemDescription > p {
+  margin: 0.5rem;
+}
+.FavouritesAndStars {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.StarsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.Heart {
+  color: gold;
+  margin: 0.5rem;
+}
+
+.Heart :hover {
+  color: brown;
+}
+
+.Stars {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem;
+}
+
+.Star {
+  color: gold;
+}
+
+.RightContainer {
+  position: fixed;
+  right: 0;
+  margin-right: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+.SearchContainer {
+  color: gold;
+}
+
+.FavouriteContainer {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid brown;
+  height: 380px;
+}
+
+.FavouriteTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid brown;
+}
+
+.FavouriteHeart {
+  color: brown;
+  margin: 1rem;
+}
+
+.FavouriteItem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px solid brown;
+}
+
+.FavouriteImage {
+  width: 100px;
+  height: 50px;
+}
+.FavouriteItemNameAndReview {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-left: 3px solid brown;
+}
+
+.FavouriteReview {
+  font-size: 0.8rem;
+  margin: 0.5rem;
+}
+
+.FavouriteItems {
+  overflow: scroll;
+  overflow-x: hidden;
+}
