@@ -11,7 +11,6 @@ export class Favourite extends Component {
               type="text"
               placeholder="Enter keyword..."
               onChange={this.props.onKeywordChange}
-              //  value={this.props.keyword}
             />
             <FaSearch />
           </form>

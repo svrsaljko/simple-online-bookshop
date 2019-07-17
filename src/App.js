@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-// eslint-disable-next-line
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./pages/Home";
+import Details from "./pages/Details";
+import Favourite from "./components/Favourite";
 
 class App extends Component {
   state = {
@@ -11,11 +13,11 @@ class App extends Component {
     items: [
       {
         stars: [
-          { value: 1, isActive: false, isHover: false },
-          { value: 2, isActive: false, isHover: false },
-          { value: 3, isActive: false, isHover: false },
-          { value: 4, isActive: false, isHover: false },
-          { value: 5, isActive: false, isHover: false }
+          { value: 1, isActive: false, isHover: false, cursorPointer: false },
+          { value: 2, isActive: false, isHover: false, cursorPointer: false },
+          { value: 3, isActive: false, isHover: false, cursorPointer: false },
+          { value: 4, isActive: false, isHover: false, cursorPointer: false },
+          { value: 5, isActive: false, isHover: false, cursorPointer: false }
         ],
         id: 1,
         itemName: "Book1",
@@ -43,11 +45,11 @@ class App extends Component {
       },
       {
         stars: [
-          { value: 1, isActive: false, isHover: false },
-          { value: 2, isActive: false, isHover: false },
-          { value: 3, isActive: false, isHover: false },
-          { value: 4, isActive: false, isHover: false },
-          { value: 5, isActive: false, isHover: false }
+          { value: 1, isActive: false, isHover: false, cursorPointer: false },
+          { value: 2, isActive: false, isHover: false, cursorPointer: false },
+          { value: 3, isActive: false, isHover: false, cursorPointer: false },
+          { value: 4, isActive: false, isHover: false, cursorPointer: false },
+          { value: 5, isActive: false, isHover: false, cursorPointer: false }
         ],
         id: 2,
         itemName: "Book2",
@@ -77,11 +79,11 @@ class App extends Component {
       },
       {
         stars: [
-          { value: 1, isActive: false, isHover: false },
-          { value: 2, isActive: false, isHover: false },
-          { value: 3, isActive: false, isHover: false },
-          { value: 4, isActive: false, isHover: false },
-          { value: 5, isActive: false, isHover: false }
+          { value: 1, isActive: false, isHover: false, cursorPointer: false },
+          { value: 2, isActive: false, isHover: false, cursorPointer: false },
+          { value: 3, isActive: false, isHover: false, cursorPointer: false },
+          { value: 4, isActive: false, isHover: false, cursorPointer: false },
+          { value: 5, isActive: false, isHover: false, cursorPointer: false }
         ],
 
         id: 3,
@@ -177,6 +179,7 @@ class App extends Component {
         item.starReviewValueCounter += value;
         item.reviewRestriction = true;
         stars.map(star => {
+          star.cursorPointer = true;
           if (star.value <= value) {
             star.isActive = true;
           }
@@ -187,7 +190,7 @@ class App extends Component {
       items
     });
   };
-
+  č;
   addToFavourites = id => {
     let items = this.state.items;
     items.forEach(item => {
@@ -203,17 +206,36 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home
-          onRemoveHover={this.onRemoveHover}
-          onStarHover={this.onStarHover}
-          onStarClick={this.onStarClick}
-          addToFavourites={this.addToFavourites}
-          itemsbuffer={this.state.itemsbuffer}
-          items={this.state.items}
-          onFormSubmit={this.onFormSubmit}
+        <Header />
+        <Favourite
           onKeywordChange={this.onKeywordChange}
-          keyword={this.state.keyword}
+          onFormSubmit={this.onFormSubmit}
+          items={this.items}
+          keyword={this.keyword}
+          itemsbuffer={this.state.itemsbuffer}
         />
+        <Router>
+          <div>
+            <Route
+              exact
+              path="/"
+              //OBLIK ARROW FUNCKIJE NEOBIČAN
+              render={() => (
+                <Home
+                  onRemoveHover={this.onRemoveHover}
+                  onStarHover={this.onStarHover}
+                  onStarClick={this.onStarClick}
+                  addToFavourites={this.addToFavourites}
+                  items={this.state.items}
+                />
+              )}
+            />
+            <Route
+              path="/details/:id"
+              render={props => <Details id={props.match.params.id} />}
+            />
+          </div>
+        </Router>
       </div>
     );
   }

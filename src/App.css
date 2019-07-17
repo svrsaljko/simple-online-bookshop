@@ -1,3 +1,17 @@
+.Title {
+  margin: 0.5rem;
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
+}
+
+.Link:hover {
+  color: brown;
+  cursor: pointer;
+}
+
 .Header {
   color: gold;
   text-align: center;
@@ -72,6 +86,7 @@ img {
 
 .Heart :hover {
   color: brown;
+  cursor: pointer;
 }
 
 .Stars {

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Items extends React.Component {
   render() {
@@ -13,28 +13,32 @@ class Items extends React.Component {
           {items.items.map(item => {
             return (
               <div className="Item" key={item.id}>
-                <div className="TitleAndReview">
-                  <p style={{ margin: "0.5rem" }}>
-                    ocjena{" "}
-                    {(item.starReviewValueCounter / item.reviewCounter).toFixed(
-                      2
-                    )}{" "}
-                    {"  "}
-                    na temelju {item.reviewCounter} recenzije
-                  </p>
-                </div>
-                <div className="ImageAndDescription">
-                  <img
-                    src={require("../book.jpg")}
-                    alt="this is book picture"
-                  />
-                  <div className="ItemDescription">
-                    <p>
-                      this is image description....this is image
-                      description....this is image description.
+                <Link to={"/details/" + item.id} className="Link">
+                  <div className="TitleAndReview">
+                    <p className="Title"> {item.itemName} </p>
+                    <p style={{ margin: "0.5rem" }}>
+                      ocjena{" "}
+                      {(
+                        item.starReviewValueCounter / item.reviewCounter
+                      ).toFixed(2)}{" "}
+                      {"  "}
+                      na temelju {item.reviewCounter} recenzije
                     </p>
                   </div>
-                </div>
+                  <div className="ImageAndDescription">
+                    <img
+                      src={require("../book.jpg")}
+                      alt="this is book picture"
+                    />
+                    <div className="ItemDescription">
+                      <p>
+                        this is image description....this is image
+                        description....this is image description.
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+
                 <div className="FavouritesAndStars">
                   <div
                     onClick={() => {
@@ -51,8 +55,9 @@ class Items extends React.Component {
                       return (
                         <FaStar
                           style={{
-                            color: star.isActive ? "brown" : "gold",
-                            color: star.isHover ? "brown" : "gold"
+                            color: star.isHover ? "brown" : "gold",
+                            cursor: star.isHover ? "pointer" : "default",
+                            cursor: star.cursorPointer ? "default" : "pointer"
                           }}
                           onClick={() => {
                             if (!item.reviewRestriction) {

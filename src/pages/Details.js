@@ -1,14 +1,23 @@
 import React, { Component } from "react";
-import ItemCard from "../components/ItemCard";
-import Favourite from "../components/Favourite";
+import Items from "../components/Items";
+
 export class Details extends Component {
+  state = {
+    id: null
+  };
+
+  componentDidMount() {
+    let id = this.props.id;
+
+    this.setState({ id });
+    console.log("DETAILS PROPS", this.props);
+  }
+
+  Item = () => {};
+
   render() {
-    return (
-      <div>
-        <ItemCard />
-        <Favourite />
-      </div>
-    );
+    //console.log("DETAILS", this.Item);
+    return <div style={{ marginLeft: "8rem" }}>{this.Item()}</div>;
   }
 }
 
