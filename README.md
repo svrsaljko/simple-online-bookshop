@@ -1,4 +1,7 @@
-![Book](src\book.jpg)
+<img src="./src/book.jpg"
+     alt="Book"
+     width="50"
+     height="50" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
