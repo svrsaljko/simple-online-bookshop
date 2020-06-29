@@ -1,7 +1,7 @@
 <img src="./src/book.jpg"
      alt="Book"
-     width="50"
-     height="50" />
+     width="200"
+     height="100" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
